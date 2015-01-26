@@ -46,49 +46,49 @@
     UIViewController<MBViewControllerProtocol>* viewController = nil;
     
     if([@"PAGE-customized-view-logic" isEqualToString:definition.name]) {
-        viewController = [[[CustomizedViewLogic alloc] init] autorelease];
+        viewController = [[CustomizedViewLogic alloc] init];
 	} else if([@"PAGE-customized-list" isEqualToString:definition.name]) {
-		viewController = [[[CustomizedList alloc] init] autorelease];
+		viewController = [[CustomizedList alloc] init];
 	} else if([@"PAGE-customized-layout" isEqualToString:definition.name]) {
-		viewController = [[[CustomizedLayout alloc] init] autorelease];
+		viewController = [[CustomizedLayout alloc] init];
 	} else if([@"PAGE-page-with-xib" isEqualToString:definition.name]) {
-		viewController = [[[PageWithXibFileViewController alloc] init] autorelease];
+		viewController = [[PageWithXibFileViewController alloc] init];
 	}
     
     if ([@"PAGE-modern-catalog" isEqualToString:definition.name]) {
-        SimplestPlantCatalogViewBindingController *controller = [[[SimplestPlantCatalogViewBindingController alloc] init] autorelease];
-        MBPage *page = [[[MBPage alloc] initWithDefinition:definition withViewController:controller document:document rootPath:rootPath viewState:viewState] autorelease];
+        SimplestPlantCatalogViewBindingController *controller = [[SimplestPlantCatalogViewBindingController alloc] init];
+        MBPage *page = [[MBPage alloc] initWithDefinition:definition withViewController:controller document:document rootPath:rootPath viewState:viewState];
         [controller rebuildView];
         return page;
     }
     if ([@"PAGE-modern-catalog-2" isEqualToString:definition.name]) {
-        PlantCatalogViewBindingController *controller = [[[PlantCatalogViewBindingController alloc] init] autorelease];
-        MBPage *page = [[[MBPage alloc] initWithDefinition:definition withViewController:controller document:document rootPath:rootPath viewState:viewState] autorelease];
+        PlantCatalogViewBindingController *controller = [[PlantCatalogViewBindingController alloc] init];
+        MBPage *page = [[MBPage alloc] initWithDefinition:definition withViewController:controller document:document rootPath:rootPath viewState:viewState];
         [controller rebuildView];
         return page;
     }
     if ([@"PAGE-modern-catalog-3" isEqualToString:definition.name]) {
-        SpecialPlantCatalogViewBindingController *controller = [[[SpecialPlantCatalogViewBindingController alloc] init] autorelease];
-        MBPage *page = [[[MBPage alloc] initWithDefinition:definition withViewController:controller document:document rootPath:rootPath viewState:viewState] autorelease];
+        SpecialPlantCatalogViewBindingController *controller = [[SpecialPlantCatalogViewBindingController alloc] init];
+        MBPage *page = [[MBPage alloc] initWithDefinition:definition withViewController:controller document:document rootPath:rootPath viewState:viewState];
         [controller rebuildView];
         return page;
     }
     if ([@"PAGE-modern-plant-detail" isEqualToString:definition.name]) {
-        PlantDetailViewBindingController *controller = [[[PlantDetailViewBindingController alloc] init] autorelease];
-        MBPage *page = [[[MBPage alloc] initWithDefinition:definition withViewController:controller document:document rootPath:rootPath viewState:viewState] autorelease];
+        PlantDetailViewBindingController *controller = [[PlantDetailViewBindingController alloc] init];
+        MBPage *page = [[MBPage alloc] initWithDefinition:definition withViewController:controller document:document rootPath:rootPath viewState:viewState];
         [controller rebuildView];
         return page;
     }
     
     if(viewController) {
-        return [[[MBPage alloc] initWithDefinition:definition withViewController:viewController document:document rootPath:rootPath viewState: viewState] autorelease];
+        return [[MBPage alloc] initWithDefinition:definition withViewController:viewController document:document rootPath:rootPath viewState: viewState];
     }
     
     return [super createPage:definition document:document rootPath:rootPath viewState: viewState withMaxBounds: bounds];
 }
 
 -(id<MBContentViewWrapper>)createContentViewWrapper {
-	return [[[MBSlidingMenuContentViewWrapper alloc] init] autorelease];
+	return [[MBSlidingMenuContentViewWrapper alloc] init];
 }
 
 @end

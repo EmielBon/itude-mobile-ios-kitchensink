@@ -20,7 +20,7 @@
 static UIViewController *controller;
 
 -(void)decorateDialog:(MBDialogController *)dialog {
-	controller = [dialog.rootViewController retain];
+	controller = dialog.rootViewController;
 }
 
 -(void)presentDialog:(MBDialogController *)dialog withTransitionStyle:(NSString *)transitionStyle {

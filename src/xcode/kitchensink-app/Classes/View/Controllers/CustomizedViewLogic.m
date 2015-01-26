@@ -46,14 +46,14 @@
 
 		outcome.document = doc;
 
-		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Outcome started!" message:[outcome.document valueForPath:@"/Message[0]/@content"] delegate:nil cancelButtonTitle:@"Done!" otherButtonTitles:nil, nil] autorelease];
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Outcome started!" message:[outcome.document valueForPath:@"/Message[0]/@content"] delegate:nil cancelButtonTitle:@"Done!" otherButtonTitles:nil, nil];
 		[alert show];
 	}
 }
 
 -(void)outcomeHandled:(MBOutcome *)outcome {
 	if ([outcome.outcomeName isEqualToString:@"LOCAL-OUTCOME1"]) {
-		UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Outcome handled!" message:[outcome.document valueForPath:@"/Message[0]/@content"] delegate:nil cancelButtonTitle:@"Done!" otherButtonTitles:nil, nil] autorelease];
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Outcome handled!" message:[outcome.document valueForPath:@"/Message[0]/@content"] delegate:nil cancelButtonTitle:@"Done!" otherButtonTitles:nil, nil];
 		[alert show];
 	}
 }

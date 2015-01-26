@@ -22,7 +22,7 @@
     MBOutcome *outcome = nil;
     
     NSString *message = @"Achter deze actie zit nog geen gedrag. Dit wordt nader geimplementeerd.";
-    UIAlertView *todoMessage = [[[UIAlertView alloc] initWithTitle:@"TODO" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
+    UIAlertView *todoMessage = [[UIAlertView alloc] initWithTitle:@"TODO" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [todoMessage show];
     
 	return outcome;

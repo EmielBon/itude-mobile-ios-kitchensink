@@ -488,25 +488,25 @@
 		172D37A91A6E9E7600A07F2D /* Plant Catalog */ = {
 			isa = PBXGroup;
 			children = (
-				17B8C1BC1A764F7000B2534A /* 1. Simplest list */,
+				17B8C1BC1A764F7000B2534A /* 1. Simple list */,
 				17B8C1BF1A76505000B2534A /* 2. Plant detail */,
-				17B8C1BD1A764FA300B2534A /* 3. Custom cell */,
-				17B8C1BE1A764FED00B2534A /* 4. Custom cell API */,
+				17B8C1BD1A764FA300B2534A /* 3. List with cells from a xib */,
+				17B8C1BE1A764FED00B2534A /* 4. List with cells with a custom API */,
 			);
 			name = "Plant Catalog";
 			sourceTree = "<group>";
 		};
-		17B8C1BC1A764F7000B2534A /* 1. Simplest list */ = {
+		17B8C1BC1A764F7000B2534A /* 1. Simple list */ = {
 			isa = PBXGroup;
 			children = (
 				17B8C1B11A7647E900B2534A /* SimplestPlantCatalogViewBindingController.h */,
 				17B8C1B21A7647E900B2534A /* SimplestPlantCatalogViewBindingController.m */,
 				17B8C1B31A7647E900B2534A /* SimplestPlantCatalogViewBindingController.xib */,
 			);
-			name = "1. Simplest list";
+			name = "1. Simple list";
 			sourceTree = "<group>";
 		};
-		17B8C1BD1A764FA300B2534A /* 3. Custom cell */ = {
+		17B8C1BD1A764FA300B2534A /* 3. List with cells from a xib */ = {
 			isa = PBXGroup;
 			children = (
 				172867711A68279A00C170FE /* PlantCatalogTableViewCell.xib */,
@@ -514,10 +514,10 @@
 				17B8C1B81A764F1D00B2534A /* PlantCatalogViewBindingController.m */,
 				17B8C1B91A764F1D00B2534A /* PlantCatalogViewBindingController.xib */,
 			);
-			name = "3. Custom cell";
+			name = "3. List with cells from a xib";
 			sourceTree = "<group>";
 		};
-		17B8C1BE1A764FED00B2534A /* 4. Custom cell API */ = {
+		17B8C1BE1A764FED00B2534A /* 4. List with cells with a custom API */ = {
 			isa = PBXGroup;
 			children = (
 				172D37B41A6EA9FF00A07F2D /* SpecialPlantBinder.h */,
@@ -529,7 +529,7 @@
 				172867681A6823DD00C170FE /* SpecialPlantCatalogViewBindingController.m */,
 				172867691A6823DD00C170FE /* SpecialPlantCatalogViewBindingController.xib */,
 			);
-			name = "4. Custom cell API";
+			name = "4. List with cells with a custom API";
 			sourceTree = "<group>";
 		};
 		17B8C1BF1A76505000B2534A /* 2. Plant detail */ = {
@@ -1145,6 +1145,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = armv7;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1184,6 +1185,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = armv7;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1406,6 +1408,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = armv7;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (

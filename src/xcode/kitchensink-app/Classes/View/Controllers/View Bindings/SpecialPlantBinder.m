@@ -13,7 +13,7 @@
 
 + (instancetype)binderWithIdentifier:(NSString *)identifier
 {
-    return [[[SpecialPlantBinder alloc] initWithBindingIdentifier:identifier] autorelease];
+    return [[SpecialPlantBinder alloc] initWithBindingIdentifier:identifier];
 }
 
 - (void)populateView:(UIView *)view withDataFromComponent:(MBComponent *)component

@@ -23,7 +23,7 @@
     // Dequeue or create a UITableViewCell like you would in a standard UITableViewController
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"customRowCell"];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"customRowCell"] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"customRowCell"];
         cell.imageView.image = [UIImage imageNamed:@"trololo.jpg"];
     }
     

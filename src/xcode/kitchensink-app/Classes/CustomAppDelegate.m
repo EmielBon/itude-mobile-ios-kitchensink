@@ -29,19 +29,18 @@
 
 -(void) startController {
 	
-	NSAutoreleasePool *pool = [NSAutoreleasePool new];
+	@autoreleasepool {
 	
 	// Uncomment this in development/test mode to get the stacktrace on-screen
-	InstallUncaughtExceptionHandler();
+		InstallUncaughtExceptionHandler();
     
     
     // Register custom RowViewBuilders
     CustomRowViewBuilder *customBuilder = [[CustomRowViewBuilder alloc] init];
     [[[MBViewBuilderFactory sharedInstance] rowViewBuilderFactory] registerRowViewBuilder:customBuilder forRowType:C_ROW forRowStyle:@"customRow"];
-    [customBuilder release];
     
     // Set our own applicationFactory. IMPORTANT: The applicationFactory needs to be set before [MBApplicationFactory sharedInstance] is called for the first time.
-    CustomApplicationFactory *applicationFactory = [[[CustomApplicationFactory alloc] init] autorelease];
+    CustomApplicationFactory *applicationFactory = [[CustomApplicationFactory alloc] init];
     [MBApplicationFactory setSharedInstance:applicationFactory];
     
     // Register transition styles
@@ -52,26 +51,26 @@
     // Register a custom back button (a wish but disabled for now because of inconsistency and bugs).
     //[[[MBViewBuilderFactory sharedInstance] backButtonBuilderFactory] setDefaultBuilder:[[MBArrowIconBackButtonBuilder new] autorelease]];
 
-	[[[MBViewBuilderFactory sharedInstance]dialogDecoratorFactory] registerDialogDecorationBuilder:[[[CustomMenuDialogDecorator alloc]init] autorelease] forType: @"MENU"];
+		[[[MBViewBuilderFactory sharedInstance]dialogDecoratorFactory] registerDialogDecorationBuilder:[[CustomMenuDialogDecorator alloc]init] forType: @"MENU"];
     
     // set the Custom datahandlers
     
     // Set custom stylehandling
-    [[MBViewBuilderFactory sharedInstance] setStyleHandler:[[CustomStyleHandler new] autorelease]];
-	
-	// set the Custom datahandlers
-    [[MBDataManagerService sharedInstance] registerDataHandler:[[PlantDataService new] autorelease] withName:@"PlantDataHandler"];
+    [[MBViewBuilderFactory sharedInstance] setStyleHandler:[CustomStyleHandler new]];
+		
+		// set the Custom datahandlers
+    [[MBDataManagerService sharedInstance] registerDataHandler:[PlantDataService new] withName:@"PlantDataHandler"];
     
-	// Delete any cached documents at startup
-	[MBCacheManager expireAllDocuments];
-	
+		// Delete any cached documents at startup
+		[MBCacheManager expireAllDocuments];
+		
 
     
     [self initializeApplicationProperties];
     
-	[self performSelectorOnMainThread:@selector(startApplication:) withObject:[MBApplicationFactory sharedInstance] waitUntilDone:YES];
+		[self performSelectorOnMainThread:@selector(startApplication:) withObject:[MBApplicationFactory sharedInstance] waitUntilDone:YES];
     
-	[pool drain];
+	}
     
 }
 

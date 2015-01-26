@@ -16,33 +16,10 @@
 
 #import "NSDateUtilities.h"
 
-
 // XML date format
 #define XMLDATEFORMAT @"yyyy-MM-dd'T'HH:mm:ss"
 
 @implementation NSDate (DateAdditions)
-
-
-+ (NSDate *) theDayBeforeTomorrow {
-    return [[NSDate date] addDays:-2];
-}
-
-+ (NSDate *) yesterday {
-    return [[NSDate date] addDays:-1];
-}
-
-+ (NSDate *) today {
-    return [NSDate date];
-}
-
-+ (NSDate *) tomorrow {
-    return [[NSDate date] addDays:1];
-}
-
-+ (NSDate *) theDayAfterTomorrow {
-    return [[NSDate date] addDays:2];
-}
-
 
 // Adds excactly one day to the current date.
 - (NSDate *) addDays:(NSInteger) days {
@@ -50,35 +27,26 @@
     NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
     [offsetComponents setDay:days];
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    self = [gregorian dateByAddingComponents:offsetComponents toDate:self options:0];
-    [offsetComponents release];
-    [gregorian release];
-    return self;
+    NSDate *newDate = [gregorian dateByAddingComponents:offsetComponents toDate:self options:0];
+    return newDate;
 }
 
 // Converts a XML dateString to a NSDate object
-+ (NSDate *)dateFromXmlString:(NSString *)xmlDateString {
-    NSDate *result = nil;
-    if (xmlDateString != nil) {
++ (NSDate *)dateFromXmlString:(NSString *)xmlDateString
+{
+    if (xmlDateString) {
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:XMLDATEFORMAT];
-        result = [dateFormat dateFromString:xmlDateString]; 
-        [dateFormat release];
+        dateFormat.dateFormat = XMLDATEFORMAT;
+        return [dateFormat dateFromString:xmlDateString];
     }
-    return result;
+    return nil;
 }
 
-+ (NSString *)xmlDateStringFromDate:(NSDate *)date {
-    NSString *result = nil;
-    
-    if (self) {
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:XMLDATEFORMAT];
-        result = [dateFormatter stringFromDate:date];
-        [dateFormatter release];
-    }
-    
-    return result;
++ (NSString *)xmlDateStringFromDate:(NSDate *)date
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = XMLDATEFORMAT;
+    return [dateFormatter stringFromDate:date];
 }
 
 @end

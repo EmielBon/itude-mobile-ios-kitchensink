@@ -27,7 +27,7 @@
     [doc setValue:[[UIDevice currentDevice] description] forPath:@"Device[0]/@deviceType"];
     
     // create the Outcome with data included in it and return it to the Application Controller
-    MBOutcome *oc = [[[MBOutcome alloc] init] autorelease];
+    MBOutcome *oc = [[MBOutcome alloc] init];
     oc.outcomeName = @"OUTCOME-display-device-info";
     oc.noBackgroundProcessing = TRUE;
     oc.transferDocument = TRUE;

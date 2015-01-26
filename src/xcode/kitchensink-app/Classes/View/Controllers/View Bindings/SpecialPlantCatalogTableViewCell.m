@@ -10,9 +10,9 @@
 
 @interface SpecialPlantCatalogTableViewCell ()
 
-@property (retain, nonatomic) IBOutlet UILabel *commonNameLabel;
-@property (retain, nonatomic) IBOutlet UILabel *botanicalNameLabel;
-@property (retain, nonatomic) IBOutlet UILabel *coolPlantLabel;
+@property (strong, nonatomic) IBOutlet UILabel *commonNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *botanicalNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *coolPlantLabel;
 
 @end
 
@@ -44,12 +44,5 @@
     self.coolPlantLabel.text = (coolPlant) ? @"❄️+🌿=😃👍" : @"❄️+🌿=😢👎";
 }
 
-- (void)dealloc
-{
-    self.commonNameLabel = nil;
-    self.botanicalNameLabel = nil;
-    self.coolPlantLabel = nil;
-    [super dealloc];
-}
 
 @end

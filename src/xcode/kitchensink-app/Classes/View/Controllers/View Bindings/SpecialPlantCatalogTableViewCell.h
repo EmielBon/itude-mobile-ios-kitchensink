@@ -10,8 +10,8 @@
 
 @interface SpecialPlantCatalogTableViewCell : UITableViewCell
 
-@property (nonatomic, retain) NSString *commonName;
-@property (nonatomic, retain) NSString *botanicalName;
+@property (nonatomic, strong) NSString *commonName;
+@property (nonatomic, strong) NSString *botanicalName;
 @property (nonatomic, assign, getter=isCoolPlant) BOOL coolPlant;
 
 @end
