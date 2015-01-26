@@ -21,7 +21,7 @@
 
     // The following code creates a binder that binds the plant property elements to a custom UITableViewCell from a xib.
     // If an outcome is present for the Coolness element, it will be fired when the button is tapped (not the case in
-    // this example).
+    // this example). Make sure to set the bindingIdentifiers appropriately in the User Defined Runtime Attributes!
     MBPageBinder *binder = [MBPageBinder binderWithViewController:self];
     UINib *plantCellNib = [UINib nibWithNibName:@"PlantCatalogTableViewCell" bundle:nil];
     [binder registerBinder:[MBSimpleTableViewBinder binderWithIdentifier:@"PlantList" cellNib:plantCellNib]];

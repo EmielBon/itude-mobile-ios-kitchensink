@@ -20,11 +20,15 @@
 {
     [super viewWillAppear:animated];
 
-    // The following code creates a binder that binds the Plant element to a special UITableViewCell.
-    // The cell (SpecialPlantCatalogTableViewCell) is special because it is loaded from a xib AND has
-    // its own custom API. It has text labels, but they are private and you don't set their text directly.
-    // You set only the public properties of the cell and it will determine how it is placed in the text
-    // labels (e.g. with special formatting, like for the Coolness element).
+    // The following code creates a binder that binds the Plant element to a special UITableViewCell with
+    // a bindingIdentifier set to "Plant". The cell (SpecialPlantCatalogTableViewCell) is special because
+    // it is loaded from a xib AND has its own custom API. It has text labels, but they are private and
+    // you don't set their text directly. You set only the public properties of the cell and it will
+    // determine how it is placed in the text labels (e.g. with special formatting, like for the Coolness
+    // element).
+    
+    // For this scenario you would create your own subclass of MBBaseViewBinder. See SpecialPlantBinder
+    // for details.
     
     MBPageBinder *binder = [MBPageBinder binderWithViewController:self];
     UINib *plantCellNib = [UINib nibWithNibName:@"SpecialPlantCatalogTableViewCell" bundle:nil];

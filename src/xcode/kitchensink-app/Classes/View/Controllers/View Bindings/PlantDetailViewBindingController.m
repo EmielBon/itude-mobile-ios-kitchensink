@@ -19,6 +19,8 @@
 {
     [super viewWillAppear:animated];
     
+    // This binds a simple screen with only some text fields and a switch.
+    // Make sure to set the bindingIdentifiers appropriately in the User Defined Runtime Attributes!
     MBPageBinder *binder = [MBPageBinder binderWithViewController:self];
     [binder registerBinder:[MBSimpleTextBinder binderWithIdentifier:@"Light"]];
     [binder registerBinder:[MBSimpleTextBinder binderWithIdentifier:@"CommonName"]];

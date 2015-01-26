@@ -22,7 +22,8 @@
     MBPageBinder *binder = [MBPageBinder binderWithViewController:self];
     
     // To create a simple binder that binds the title and subtitle of every cell in a UITableView
-    // to the value of the CommonName and BotanicalName elements from the CATALOG document
+    // to the value of the CommonName and BotanicalName elements from the CATALOG document.
+    // Make sure to set the bindingIdentifiers appropriately in the User Defined Runtime Attributes!
     [binder registerBinder:[MBStandardStyleTableViewBinder binderWithIdentifier:@"PlantList"
                                                                           style:UITableViewCellStyleSubtitle
                                                                     bindTitleTo:@"CommonName"
