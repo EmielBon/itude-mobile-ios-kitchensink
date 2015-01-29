@@ -37,54 +37,26 @@
 	return nil;
 }
 
--(MBPage *) createPage:(MBPageDefinition *)definition 
-			  document:(MBDocument*) document 
-			  rootPath:(NSString*) rootPath 
-			 viewState:(MBViewState) viewState 
-		 withMaxBounds:(CGRect) bounds {
-    
-    UIViewController<MBViewControllerProtocol>* viewController = nil;
-    
-    if([@"PAGE-customized-view-logic" isEqualToString:definition.name]) {
-        viewController = [[CustomizedViewLogic alloc] init];
-	} else if([@"PAGE-customized-list" isEqualToString:definition.name]) {
-		viewController = [[CustomizedList alloc] init];
-	} else if([@"PAGE-customized-layout" isEqualToString:definition.name]) {
-		viewController = [[CustomizedLayout alloc] init];
-	} else if([@"PAGE-page-with-xib" isEqualToString:definition.name]) {
-		viewController = [[PageWithXibFileViewController alloc] init];
-	}
-    
-    if ([@"PAGE-modern-catalog" isEqualToString:definition.name]) {
-        SimplestPlantCatalogViewBindingController *controller = [[SimplestPlantCatalogViewBindingController alloc] init];
-        MBPage *page = [[MBPage alloc] initWithDefinition:definition withViewController:controller document:document rootPath:rootPath viewState:viewState];
-        [controller rebuildView];
-        return page;
+- (UIViewController<MBViewControllerProtocol> *)viewControllerForPageWithName:(NSString *)pageName
+{
+    if ([pageName isEqualToString:@"PAGE-customized-view-logic"]) {
+        return [[CustomizedViewLogic alloc] init];
+    } else if ([pageName isEqualToString:@"PAGE-customized-view-logic"]) {
+        return [[CustomizedList alloc] init];
+    } else if ([pageName isEqualToString:@"PAGE-customized-layout"]) {
+        return [[CustomizedLayout alloc] init];
+    } else if ([pageName isEqualToString:@"PAGE-page-with-xib"]) {
+        return [[PageWithXibFileViewController alloc] init];
+    } else if ([pageName isEqualToString:@"PAGE-modern-catalog"]) {
+        return [[SimplestPlantCatalogViewBindingController alloc] init];
+    } else if ([pageName isEqualToString:@"PAGE-modern-catalog-2"]) {
+        return [[PlantCatalogViewBindingController alloc] init];
+    } else if ([pageName isEqualToString:@"PAGE-modern-catalog-3"]) {
+        return [[SpecialPlantCatalogViewBindingController alloc] init];
+    } else if ([pageName isEqualToString:@"PAGE-modern-plant-detail"]) {
+        return [[PlantDetailViewBindingController alloc] init];
     }
-    if ([@"PAGE-modern-catalog-2" isEqualToString:definition.name]) {
-        PlantCatalogViewBindingController *controller = [[PlantCatalogViewBindingController alloc] init];
-        MBPage *page = [[MBPage alloc] initWithDefinition:definition withViewController:controller document:document rootPath:rootPath viewState:viewState];
-        [controller rebuildView];
-        return page;
-    }
-    if ([@"PAGE-modern-catalog-3" isEqualToString:definition.name]) {
-        SpecialPlantCatalogViewBindingController *controller = [[SpecialPlantCatalogViewBindingController alloc] init];
-        MBPage *page = [[MBPage alloc] initWithDefinition:definition withViewController:controller document:document rootPath:rootPath viewState:viewState];
-        [controller rebuildView];
-        return page;
-    }
-    if ([@"PAGE-modern-plant-detail" isEqualToString:definition.name]) {
-        PlantDetailViewBindingController *controller = [[PlantDetailViewBindingController alloc] init];
-        MBPage *page = [[MBPage alloc] initWithDefinition:definition withViewController:controller document:document rootPath:rootPath viewState:viewState];
-        [controller rebuildView];
-        return page;
-    }
-    
-    if(viewController) {
-        return [[MBPage alloc] initWithDefinition:definition withViewController:viewController document:document rootPath:rootPath viewState: viewState];
-    }
-    
-    return [super createPage:definition document:document rootPath:rootPath viewState: viewState withMaxBounds: bounds];
+    return nil;
 }
 
 -(id<MBContentViewWrapper>)createContentViewWrapper {

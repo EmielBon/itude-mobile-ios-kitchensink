@@ -21,7 +21,7 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     MBPanel *myPanel = [self.page firstChildOfKind:[MBPanel class] filterUsingSelector:@selector(name) havingValue:@"myPanel"];
-    UIView *panelView = [myPanel buildViewWithMaxBounds:CGRectZero forParent:self.view viewState:self.page.currentViewState];
+    UIView *panelView = [[MBViewBuilderFactory sharedInstance].panelViewBuilderFactory buildPanelView:myPanel forParent:self.view withMaxBounds:CGRectZero viewState:self.page.currentViewState];
     // instead of hard coding the dimensions you can design the view in interface builder, read the frame and use it here to dimension and position the view with the generated view.
     panelView.frame = CGRectMake(50,50,200,250);
 }
