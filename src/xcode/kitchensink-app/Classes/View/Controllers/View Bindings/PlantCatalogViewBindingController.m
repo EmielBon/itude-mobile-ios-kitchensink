@@ -10,14 +10,9 @@
 
 @implementation PlantCatalogViewBindingController
 
-- (void)rebuildView
+- (void)viewDidLoad
 {
-    // Prevent default View Builder behavior
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+    [super viewDidLoad];
 
     // The following code creates a binder that binds the plant property elements to a custom UITableViewCell from a xib.
     // If an outcome is present for the Coolness element, it will be fired when the button is tapped (not the case in

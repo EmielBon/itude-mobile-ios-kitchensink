@@ -10,14 +10,9 @@
 
 @implementation SimplestPlantCatalogViewBindingController
 
-- (void)rebuildView
+- (void)viewDidLoad
 {
-    // Prevent default View Builder behavior
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+    [super viewDidLoad];
     
     MBPageBinder *binder = [MBPageBinder binderWithViewController:self];
     

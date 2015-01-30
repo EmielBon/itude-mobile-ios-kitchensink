@@ -10,14 +10,9 @@
 
 @implementation PlantDetailViewBindingController
 
-- (void)rebuildView
+- (void)viewDidLoad
 {
-    // Prevent default View Builder behavior
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+    [super viewDidLoad];
     
     // This binds a simple screen with only some text fields and a switch.
     // Make sure to set the bindingIdentifiers appropriately in the User Defined Runtime Attributes!

@@ -11,14 +11,9 @@
 
 @implementation SpecialPlantCatalogViewBindingController
 
-- (void)rebuildView
+- (void)viewDidLoad
 {
-    // Prevent default View Builder behavior
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+    [super viewDidLoad];
 
     // The following code creates a binder that binds the Plant element to a special UITableViewCell with
     // a bindingIdentifier set to "Plant". The cell (SpecialPlantCatalogTableViewCell) is special because
